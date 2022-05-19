@@ -22,8 +22,14 @@ namespace Full_GRASP_And_SOLID
 
             Recipe recipe = new Recipe();
             recipe.FinalProduct = GetProduct("Café con leche");
+            /* No cumple Creator ya que las instancias de Step son creadas por la clase Program, 
+            cuando en realidad la clase que contiene esas instancias es Recipe. 
+            Modifico entonces la clase Recie para asignarle la responsabilidad de crear instancias de Step.
             recipe.AddStep(new Step(GetProduct("Café"), 100, GetEquipment("Cafetera"), 120));
-            recipe.AddStep(new Step(GetProduct("Leche"), 200, GetEquipment("Hervidor"), 60));
+            recipe.AddStep(new Step(GetProduct("Leche"), 200, GetEquipment("Hervidor"), 60));*/
+
+            recipe.AddStep(GetProduct("Café"), 100, GetEquipment("Cafetera"), 120);
+            recipe.AddStep(GetProduct("Leche"), 200, GetEquipment("Hervidor"), 60);
 
             IPrinter printer;
             printer = new ConsolePrinter();

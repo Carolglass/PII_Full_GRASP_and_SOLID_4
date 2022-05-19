@@ -15,8 +15,11 @@ namespace Full_GRASP_And_SOLID
 
         public Product FinalProduct { get; set; }
 
-        public void AddStep(Step step)
+        //Modifico entonces la clase Recie para asignarle la responsabilidad de crear instancias de Step.
+
+        public void AddStep(Product input, double quantity, Equipment equipment, int time)
         {
+            Step step = new Step(input, quantity, equipment, time);
             this.steps.Add(step);
         }
 
